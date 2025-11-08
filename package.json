@@ -8,9 +8,9 @@
   },
   "scripts": {
     "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "npm run start --prefix backend"
+    "start": "cd backend && npm start"
   },
-  "repository": {
+  "repository": { 
     "type": "git",
     "url": "git+https://github.com/duykhanh31/Chat_App.git"
   },
