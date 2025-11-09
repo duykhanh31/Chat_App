@@ -1,0 +1,24 @@
+[phases.setup]
+# Dùng Node phiên bản >= 22.12.0 (Vite yêu cầu)
+nixPkgs = ["nodejs_22"]
+nodejsVersion = "22.12.0"
+
+[phases.install]
+# Xóa cache npm và cài đặt sạch
+cmds = [
+  "rm -rf node_modules frontend/node_modules backend/node_modules",
+  "rm -f package-lock.json frontend/package-lock.json backend/package-lock.json",
+  "npm ci --force"
+]
+
+[phases.build]
+# Build frontend trước, sau đó backend
+cmds = [
+  "npm install --prefix backend",
+  "npm install --prefix frontend",
+  "npm run build --prefix frontend"
+]
+
+[start]
+# Chạy server Node backend
+cmd = "node backend/src/server.js"
