@@ -67,6 +67,7 @@ export const sendMessage = async (req, res) => {
 
     await newMessage.save();
 
+    // to do: send message in real-time if user is online - socket.io
     const receiverSocketId = getReceiverSocketId(receiverId);
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", newMessage);
