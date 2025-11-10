@@ -8,7 +8,9 @@
 - Lê Đức Quang Huy
 - Nguyễn Chí Cương
 - Trần Như Gia Bảo
-  **Giảng viên hướng dẫn:** Bùi Dương Thế
+
+
+**Giảng viên hướng dẫn:** Bùi Dương Thế
 
 # Chat App with React, Node.js, Socket.io - Lập trình ứng dụng Chat 
 
