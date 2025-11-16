@@ -2,20 +2,15 @@ import { useState, useRef } from "react";
 import { LogOutIcon, VolumeOffIcon, Volume2Icon } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
-
 const mouseClickSound = new Audio("/sounds/mouse-click.mp3");
-
 function ProfileHeader() {
   const { logout, authUser, updateProfile } = useAuthStore();
   const { isSoundEnabled, toggleSound } = useChatStore();
   const [selectedImg, setSelectedImg] = useState(null);
-
   const fileInputRef = useRef(null);
-
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
     const reader = new FileReader();
     reader.readAsDataURL(file);
 
@@ -25,7 +20,6 @@ function ProfileHeader() {
       await updateProfile({ profilePic: base64Image });
     };
   };
-
   return (
     <div className="p-6 border-b border-slate-700/50">
       <div className="flex items-center justify-between">
@@ -45,7 +39,6 @@ function ProfileHeader() {
                 <span className="text-white text-xs">Change</span>
               </div>
             </button>
-
             <input
               type="file"
               accept="image/*"
@@ -54,7 +47,6 @@ function ProfileHeader() {
               className="hidden"
             />
           </div>
-
           {/* USERNAME & ONLINE TEXT */}
           <div>
             <h3 className="text-slate-200 font-medium text-base max-w-[180px] truncate">
@@ -64,7 +56,6 @@ function ProfileHeader() {
             <p className="text-slate-400 text-xs">Online</p>
           </div>
         </div>
-
         {/* BUTTONS */}
         <div className="flex gap-4 items-center">
           {/* LOGOUT BTN */}
@@ -74,7 +65,6 @@ function ProfileHeader() {
           >
             <LogOutIcon className="size-5" />
           </button>
-
           {/* SOUND TOGGLE BTN */}
           <button
             className="text-slate-400 hover:text-slate-200 transition-colors"
