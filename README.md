@@ -98,5 +98,5 @@ npm run dev
 ```bash
 cd frontend
 npm install
-## 🔧 Cấu hình
+npm run dev
 
